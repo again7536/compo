@@ -1,0 +1,22 @@
+{
+  "extends": ["airbnb", "airbnb-typescript", "airbnb/hooks", "prettier"],
+  "plugins": ["import"],
+  "parserOptions": { "project": "./tsconfig.json" },
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-pascal-case": "off",
+    "import/prefer-default-export": "off",
+    "import/no-unresolved": "error"
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.json"
+      }
+    }
+  }
+}
