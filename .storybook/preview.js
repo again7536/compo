@@ -1,3 +1,5 @@
+import { withTheme } from "./withTheme.decorator";
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -21,3 +23,5 @@ export const parameters = {
     },
   },
 };
+
+export const decorators = [withTheme];

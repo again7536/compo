@@ -1,3 +1,4 @@
+import { Theme } from "@emotion/react";
 import { merge } from "lodash";
 
 const baseTheme = {
@@ -20,14 +21,26 @@ const baseTheme = {
     body: "Sarabun",
     menu: "Montserrat",
   },
+  size: {
+    1: "12pt",
+    2: "14pt",
+    3: "16pt",
+    4: "20pt",
+    5: "24pt",
+    6: "32pt",
+    7: "64pt",
+    8: "102pt",
+  },
 };
 
-const THEMES = {
+const THEMES: { light: Theme; dark: Theme } = {
   light: merge(baseTheme, {
-    background: baseTheme.colors.white,
-    text: "#000000",
-    primary: baseTheme.colors.melon,
-    secondary: baseTheme.colors.paleDogwood,
+    colors: {
+      background: baseTheme.colors.white,
+      text: "#000000",
+      primary: baseTheme.colors.melon,
+      secondary: baseTheme.colors.paleDogwood,
+    },
   }),
   dark: merge(baseTheme, {
     colors: {
@@ -39,4 +52,4 @@ const THEMES = {
   }),
 };
 
-export default THEMES.light;
+export default THEMES;

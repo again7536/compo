@@ -16,11 +16,11 @@
     "isolatedModules": false,
     "noEmit": true,
     "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "include": ["./src"],
-  "exclude": ["node_modules"]
+  "include": ["./src", "src/emotion.d.ts", "./vite.config.ts", "./.storybook"]
 }
