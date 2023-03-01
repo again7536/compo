@@ -1,4 +1,5 @@
 const react = require("@vitejs/plugin-react");
+const tsConfigPaths = require("vite-tsconfig-paths").default;
 
 module.exports = {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
@@ -26,10 +27,10 @@ module.exports = {
         babel: {
           plugins: ["@emotion/babel-plugin"],
         },
-      })
+      }),
+      tsConfigPaths()
     );
 
-    console.log(config.plugins);
     return config;
   },
 };

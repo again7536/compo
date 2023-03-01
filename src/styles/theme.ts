@@ -1,5 +1,6 @@
 import { Theme } from "@emotion/react";
 import { merge } from "lodash";
+import { createTheme } from "styled-breakpoints";
 
 const baseTheme = {
   colors: {
@@ -31,7 +32,19 @@ const baseTheme = {
     7: "64pt",
     8: "102pt",
   },
+  breakpoints: {
+    xs: "0px",
+    sm: "576px",
+    md: "768px",
+    lg: "992px",
+    xl: "1200px",
+    xxl: "1400px",
+    xxxl: "1920px",
+  },
 };
+
+// for styled-breakpoint
+createTheme(baseTheme.breakpoints);
 
 const THEMES: { light: Theme; dark: Theme } = {
   light: merge(baseTheme, {

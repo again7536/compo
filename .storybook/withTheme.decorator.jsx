@@ -5,9 +5,8 @@ import globalStyle from "../src/styles/global";
 export const withTheme = (Story, context) => {
   const { theme } = context.globals;
 
-  // <ThemeProvider theme={THEMES[theme] || THEMES['light']}>
   return (
-    <ThemeProvider theme={THEMES.light}>
+    <ThemeProvider theme={THEMES[theme] || THEMES["light"]}>
       <Story />
       <Global styles={globalStyle} />
     </ThemeProvider>

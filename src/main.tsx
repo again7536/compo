@@ -1,7 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { ThemeProvider, Global } from "@emotion/react";
-import { ScreenClassProvider } from "react-grid-system";
 import { App } from "@/app";
 import "./index.css";
 import THEMES from "./styles/theme";
@@ -17,10 +16,8 @@ const root = createRoot(rootElement);
 root.render(
   <StrictMode>
     <ThemeProvider theme={THEMES.light}>
-      <ScreenClassProvider>
-        <App />
-        <Global styles={globalStyle} />
-      </ScreenClassProvider>
+      <App />
+      <Global styles={globalStyle} />
     </ThemeProvider>
   </StrictMode>
 );
