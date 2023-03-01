@@ -8,7 +8,9 @@
     "import/prefer-default-export": "off",
     "import/no-unresolved": "error",
     "react/no-unknown-property": ["error", { "ignore": ["css"] }],
-    "react/function-component-definition": "off"
+    "react/function-component-definition": "off",
+    "react/require-default-props": "off",
+    "jsx-a11y/click-events-have-key-events": "off"
   },
   "settings": {
     "import/parsers": {
