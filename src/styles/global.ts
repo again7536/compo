@@ -50,6 +50,7 @@ const globalStyle = css`
   html,
   body {
     font-family: "Sarabun";
+    font-weight: 300;
   }
 `;
 
