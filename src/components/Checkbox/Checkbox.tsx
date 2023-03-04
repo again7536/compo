@@ -33,7 +33,7 @@ function Checkbox({ checked, name, onClick }: CheckboxProps) {
       onClick={onClick}
     >
       {checked && <FontAwesomeIcon icon={faCheck} />}
-      <input hidden type="checkbox" checked={checked} name={name} />
+      <input hidden type="checkbox" checked={checked} name={name} readOnly />
     </div>
   );
 }
