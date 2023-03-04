@@ -39,17 +39,21 @@ const ContainerWrapper = styled.div`
   width: 100%;
 `;
 const ContainerInner = styled.div`
-  padding: 0 ${CONTAINER_PADDING}px;
+  width: ${(props) => props.theme.container.xs};
 
   ${(props) =>
     Object.entries(props.theme.breakpoints)
       .map(([key, value]) => {
+        if (key === "xs") return "";
+
         const width = props.theme.container[key as BreakpointKey];
-        return width
-          ? `@media (min-width: ${value}) {width: calc(${width} - ${CONTAINER_PADDING * 2}px)}\n`
-          : "";
+        return `@media (min-width: ${value}) {
+          width: calc(${width} - ${CONTAINER_PADDING * 2}px);
+          padding: 0 ${CONTAINER_PADDING}px;
+        }\n`;
       })
-      .join("")}
+      .join("")} {
+  }
 `;
 
 const Container = ({ children }: ContainerProps) => (
