@@ -1,5 +1,5 @@
 import { Row, Col } from "@/components/Layout/Grid";
-import Logo from "@/components/Logo/Logo";
+import { Logo } from "@/components/Logo/Logo";
 import { css, useTheme } from "@emotion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleHalfStroke, faUser, faBars } from "@fortawesome/free-solid-svg-icons";
@@ -50,4 +50,4 @@ function Header() {
   );
 }
 
-export default Header;
+export { Header };

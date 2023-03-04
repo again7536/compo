@@ -1,5 +1,4 @@
-import Header from "@/components/Header/Header";
-import { Container } from "@/components/Layout/Grid";
+import { Header, Container } from "@/components";
 
 function Home() {
   return (

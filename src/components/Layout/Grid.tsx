@@ -13,6 +13,8 @@ interface ContainerProps {
   children: React.ReactNode;
 }
 
+const CONTAINER_PADDING = 30;
+
 const Col = styled.div<ColProps>`
   ${(props) =>
     Object.entries(props.theme.breakpoints)
@@ -37,13 +39,15 @@ const ContainerWrapper = styled.div`
   width: 100%;
 `;
 const ContainerInner = styled.div`
-  padding: 0 30px;
+  padding: 0 ${CONTAINER_PADDING}px;
 
   ${(props) =>
     Object.entries(props.theme.breakpoints)
       .map(([key, value]) => {
         const width = props.theme.container[key as BreakpointKey];
-        return width ? `@media (min-width: ${value}) {width: calc(${width} - 60px)}\n` : "";
+        return width
+          ? `@media (min-width: ${value}) {width: calc(${width} - ${CONTAINER_PADDING * 2}px)}\n`
+          : "";
       })
       .join("")}
 `;

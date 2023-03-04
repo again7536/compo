@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import Logo from "@/components/Logo/Logo";
+import { Logo } from "@/components/Logo/Logo";
 
 export default {
   title: "Logo",

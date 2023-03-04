@@ -38,4 +38,4 @@ function Checkbox({ checked, name, onClick }: CheckboxProps) {
   );
 }
 
-export default Checkbox;
+export { Checkbox };

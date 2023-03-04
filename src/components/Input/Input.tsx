@@ -44,4 +44,4 @@ function Input({ value, name, disabled, onChange, before, after }: InputProps) {
   );
 }
 
-export default Input;
+export { Input };
