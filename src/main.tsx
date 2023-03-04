@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { ThemeProvider, Global } from "@emotion/react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { App } from "@/app";
+import Home from "@/pages/Home/Home";
 import THEMES from "./styles/theme";
 import globalStyle from "./styles/global";
 
@@ -15,7 +15,7 @@ if (!rootElement) {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Home />,
     children: [],
   },
 ]);

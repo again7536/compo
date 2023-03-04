@@ -10,10 +10,9 @@ export default defineConfig(() => ({
   },
   plugins: [
     react({
+      exclude: [/\.stories\.(t|j)sx?$/, /node_modules/],
+      jsxImportSource: "@emotion/react",
       babel: {
-        presets: [
-          ["@babel/preset-react", { runtime: "automatic", importSource: "@emotion/react" }],
-        ],
         plugins: ["@emotion/babel-plugin"],
       },
     }),

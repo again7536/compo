@@ -9,6 +9,10 @@ interface RowProps {
   gutter?: number;
 }
 
+interface ContainerProps {
+  children: React.ReactNode;
+}
+
 const Col = styled.div<ColProps>`
   ${(props) =>
     Object.entries(props.theme.breakpoints)
@@ -26,4 +30,28 @@ const Row = styled.div<RowProps>`
   gap: 0 ${(props) => props.gutter ?? 20}px;
 `;
 
-export { Col, Row };
+const ContainerWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+`;
+const ContainerInner = styled.div`
+  padding: 0 30px;
+
+  ${(props) =>
+    Object.entries(props.theme.breakpoints)
+      .map(([key, value]) => {
+        const width = props.theme.container[key as BreakpointKey];
+        return width ? `@media (min-width: ${value}) {width: calc(${width} - 60px)}\n` : "";
+      })
+      .join("")}
+`;
+
+const Container = ({ children }: ContainerProps) => (
+  <ContainerWrapper>
+    <ContainerInner>{children}</ContainerInner>
+  </ContainerWrapper>
+);
+
+export { Col, Row, Container };

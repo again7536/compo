@@ -43,5 +43,14 @@ declare module "@emotion/react" {
       xxl: string;
       xxxl: string;
     };
+    container: {
+      xs: string;
+      sm: string;
+      md: string;
+      lg: string;
+      xl: string;
+      xxl: string;
+      xxxl: string;
+    };
   }
 }
