@@ -48,9 +48,12 @@ const globalStyle = css`
   }
 
   html,
-  body {
+  body,
+  #root {
     font-family: "Sarabun";
     font-weight: 300;
+    height: 100%;
+    margin: 0;
   }
 `;
 

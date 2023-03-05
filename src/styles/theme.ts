@@ -1,5 +1,5 @@
 import { Theme } from "@emotion/react";
-import { merge } from "lodash";
+import { merge, cloneDeep } from "lodash";
 import { createTheme } from "styled-breakpoints";
 
 const baseTheme = {
@@ -23,14 +23,15 @@ const baseTheme = {
     menu: "Montserrat",
   },
   size: {
-    1: "10pt",
-    2: "12pt",
-    3: "14pt",
-    4: "18pt",
-    5: "22pt",
-    6: "30pt",
-    7: "64pt",
-    8: "102pt",
+    1: "10px",
+    2: "12px",
+    3: "14px",
+    4: "16px",
+    5: "24px",
+    6: "32px",
+    7: "54px",
+    8: "72px",
+    9: "102px",
   },
   breakpoints: {
     xs: "0px",
@@ -56,7 +57,7 @@ const baseTheme = {
 createTheme(baseTheme.breakpoints);
 
 const THEMES: { light: Theme; dark: Theme } = {
-  light: merge(baseTheme, {
+  light: merge(cloneDeep(baseTheme), {
     colors: {
       background: baseTheme.colors.white,
       text: "#000000",
@@ -64,7 +65,7 @@ const THEMES: { light: Theme; dark: Theme } = {
       secondary: baseTheme.colors.paleDogwood,
     },
   }),
-  dark: merge(baseTheme, {
+  dark: merge(cloneDeep(baseTheme), {
     colors: {
       background: baseTheme.colors.black,
       text: "#e5e5e5",

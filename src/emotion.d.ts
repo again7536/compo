@@ -33,6 +33,7 @@ declare module "@emotion/react" {
       6: string;
       7: string;
       8: string;
+      9: string;
     };
     breakpoints: {
       xs: string;

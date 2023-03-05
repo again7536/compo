@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Theme } from "@emotion/react";
+import { Interpolation, Theme } from "@emotion/react";
 
 type BreakpointKey = keyof Theme["breakpoints"];
 type ColProps = { [key in BreakpointKey]?: number };
@@ -11,6 +11,10 @@ interface RowProps {
 
 interface ContainerProps {
   children: React.ReactNode;
+  style?: {
+    outer?: Interpolation<Theme>;
+    inner?: Interpolation<Theme>;
+  };
 }
 
 const CONTAINER_PADDING = 30;
@@ -37,9 +41,12 @@ const ContainerWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  height: 100%;
 `;
 const ContainerInner = styled.div`
-  width: ${(props) => props.theme.container.xs};
+  width: calc(${(props) => props.theme.container.xs} - 10px);
+  height: 100%;
+  padding: 0 5px;
 
   ${(props) =>
     Object.entries(props.theme.breakpoints)
@@ -56,9 +63,9 @@ const ContainerInner = styled.div`
   }
 `;
 
-const Container = ({ children }: ContainerProps) => (
-  <ContainerWrapper>
-    <ContainerInner>{children}</ContainerInner>
+const Container = ({ children, style }: ContainerProps) => (
+  <ContainerWrapper css={style?.outer}>
+    <ContainerInner css={style?.inner}>{children}</ContainerInner>
   </ContainerWrapper>
 );
 
