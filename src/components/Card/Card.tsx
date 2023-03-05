@@ -1,11 +1,13 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
+import { Skeleton } from "../Skeleton/Skeleton";
 
 type CardImageProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
   HTMLDivElement
 > & {
   src: string;
+  fallbackSrc?: string;
 };
 
 type CardImageStatus = "load" | "error" | "done";
@@ -23,6 +25,8 @@ const CardBody = styled.div`
 `;
 
 const CardImageWrapper = styled.div`
+  position: relative;
+
   width: 100%;
   height: 190px;
 
@@ -39,19 +43,26 @@ const CardImageImg = styled.img`
 
   border: none;
   outline: none;
+}
+
 `;
 
-const CardImage = ({ src, ...props }: CardImageProps) => {
+const CardImage = ({
+  src,
+  fallbackSrc = "https://picsum.photos/300/200",
+  ...props
+}: CardImageProps) => {
   const [status, setStatus] = useState<CardImageStatus>("load");
 
   return (
     <CardImageWrapper {...props}>
       <CardImageImg
-        src={status !== "error" ? src : "https://picsum.photos/300/200"}
-        // visible={status === "done"}
+        src={status !== "error" ? src : fallbackSrc}
+        alt=""
         onLoad={() => status === "load" && setStatus("done")}
         onError={() => setStatus("error")}
       />
+      {status === "load" && <Skeleton width="100%" height="100%" />}
     </CardImageWrapper>
   );
 };

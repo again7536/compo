@@ -7,6 +7,7 @@ const HeaderNav = styled.nav`
   align-items: center;
 
   & > a {
+    font-family: ${(props) => props.theme.fonts.menu};
     text-decoration: none;
     color: inherit;
   }
